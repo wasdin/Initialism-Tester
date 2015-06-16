@@ -1,7 +1,7 @@
-from subprocess import Popen
+from subprocess import *
 
 url_stub = "https://en.wikipedia.org/wiki/" 
-url = url_stub + "AAA"
+url = url_stub + "XXQ"
 
 
 p = Popen([
@@ -12,4 +12,8 @@ p = Popen([
    "--write-out",
    "'%{http_code}\n'",
    url
-])
+], stdout=PIPE)
+
+output, error = p.communicate()
+
+print output
