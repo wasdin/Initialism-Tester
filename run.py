@@ -1,7 +1,6 @@
 from subprocess import *
-
-url_stub = "https://en.wikipedia.org/wiki/" 
-url = url_stub + "XXQ"
+from time import *
+from pickle import *
 
 def url_exists(url):
 	p = Popen([
@@ -15,13 +14,15 @@ def url_exists(url):
 	], stdout=PIPE)
 
 	output, error = p.communicate()
+	#sleep(.5)
 	
 	if ("200" in output):
-		return true
+		return True
 	else:
-		return false
+		return False
 		
-def generate_initialiams(2, initialisms):
+def generate_initialiams():
+	initialisms = []
 	
 	for a in range(65,91):
 		for b in range(65,91):
@@ -30,6 +31,29 @@ def generate_initialiams(2, initialisms):
 				initialisms.append(initialism)
 				
 	return initialisms
+	
+def check_initialisms():
+	url_stub = "https://en.wikipedia.org/wiki/" 
+	trues = 0
+	falses = []
+	
+	initialisms = generate_initialiams()
+	for initialism in initialisms:
+		url = url_stub + initialism
+		if url_exists(url):
+			trues = trues + 1
+		else:
+			falses.append(initialism)
 		
-print generate_initialiams()
+	return trues, falses
+			
+def serialize_list(items, filename):
+	file = open(filename,'w')
+	dump(items, file)
+			
+			
+		
+trues, falses = check_initialisms()
+print "Are initialisms:",trues, "out of", trues+len(falses)
+serialize_list(falses, "output.txt")
 	
