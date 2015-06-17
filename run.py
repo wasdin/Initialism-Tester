@@ -21,13 +21,15 @@ def url_exists(url):
 	else:
 		return false
 		
-def generate_initialiams(length):
-	initialisms = []
-	initialism = ""
+def generate_initialiams(2, initialisms):
 	
-	while (len(initialism)) < (length):
-		for letter in range(65,91):
-			initialism += chr(letter)
+	for a in range(65,91):
+		for b in range(65,91):
+			for c in range(65,91):
+				initialism = chr(a) + chr(b) + chr(c)
+				initialisms.append(initialism)
+				
+	return initialisms
 		
-print generate_initialiams(2)
+print generate_initialiams()
 	
