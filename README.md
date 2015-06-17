@@ -7,6 +7,4 @@ This script goes through Wikipedia and checks to see whether a page for the acro
 I've included this output in the repository, in case anyone wants to run some statistics, since it takes a little while to run on behalf of waiting for Wikipedia.
 
 # Notes on running #
-This requires Python 2 and Curl. The website is requested with Curl. I have only tested this on Linux (on a Slackware-based distro), but you should be find on any *nix with curl installed. Even with curl installed, it might need slight modifications to run on Windows.
-
- 
+This requires Python 2 and Curl. The website is requested with Curl. I have only tested this on Linux (on a Slackware-based distro), but you should be fine on any *nix with curl installed. Even with curl installed, it might need slight modifications to run on Windows.
